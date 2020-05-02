@@ -2,8 +2,25 @@
 <head></head>
 <body>
 
+    <img src="{{{ image_url   }}}"/>  <!-- 3 curly brackets used for https url -->
     <h1>{{greeting}}</h1>
     <p>{{introduction}}</p>
+
+
+    <h3>Programming Languages</h3>
+    <ol>
+        {{#languages}} <!-- Using loops to generate arrays -->
+        <li>{{name}} , {{years}} years of experience </li>
+        {{/languages}} <!-- For mustache templating-->
+
+
+    </ol>
+
+            {{>form}}
+
+
+
+
 </body>
 
 </html>
