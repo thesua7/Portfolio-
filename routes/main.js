@@ -1,15 +1,26 @@
 // Full Documentation - https://docs.turbo360.co
 const express = require('express')
 const router = express.Router()
-
+const ProjectController = require("../controllers/ProjectController")
 
 router.get('/',(req,res)=>{
 
+    const data = req.context // pages, global json files
+    
+     const projectCtrl = new ProjectController
+     projectCtrl.get()
+     .then(projects => {  
+         data['projects'] = projects
+     //   console.log('Projects: '+JSON.stringify(projects)) 
+        res.render('homepage',data)
+     })
+     .catch(err => {
+          res.send("0ops"+err.message)
+     })
 
+       
+ 
 
-     const data = req.context // pages, global json files
-
-     res.render('homepage',data)
 
 
     
