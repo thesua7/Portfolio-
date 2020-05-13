@@ -17,15 +17,15 @@ app.use(vertex.setContext(process.env)) // set CDN and global object on 'req.con
 // import routes
 const page = require('./routes/page')
 const MainRoute = require('./routes/main')
-// const vertexRouters = require('./routes/vertex')
+const vertexRouters = require('./routes/vertex')
 
 app.use('/',MainRoute)   //Replacing Stock Home to Main.js home
 
 
 // set routes
 //app.use('/', page)
-// app.use('/api', vertexRouters.api)
-// app.use('/blocks', vertexRouters.blocks)
+app.use('/api', vertexRouters.api)
+app.use('/blocks', vertexRouters.blocks)
 
 
 module.exports = app
